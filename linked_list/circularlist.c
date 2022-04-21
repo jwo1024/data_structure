@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// displayLinkedList(), reverseLinkedList()의  currentElementcoutn == 0일때 예외처리 추가
+// displayLinkedList(), reverseLinkedList()의  currentElementcount == 0일때 예외처리 추가
 
 
 /* 원형 연결리스트 생성 */
@@ -46,11 +46,11 @@ int addCLElement(CircularList* pList, int position, CircularListNode element)
 		return (ERROR);
 	}
 	new->data = element.data;
-	front = getCLElement(pList, position - 1); // 헤더 노드일수도 다른 노드일수도 있다. 만약 0번째 노드에 변화가 있을 경우
+	front = getCLElement(pList, position - 1);
 	new->pLink = front->pLink;
 	front->pLink = new;
 	pList->currentElementCount++;
-	if (position == 0 && pList->currentElementCount != 1) // 원소가 남아 있을때, 원소가 남아있지 않을때 ?
+	if (position == 0 && pList->currentElementCount != 1) // 0번째 유일하지 않은 노드에 변화가 있을때
 	{
 		back = getCLElement(pList, pList->currentElementCount - 1);
 		back->pLink = pList->headerNode.pLink;
@@ -77,12 +77,12 @@ int removeCLElement(CircularList* pList, int position)
 		printf("position out of bound\n");
 		return (ERROR);
 	}
-	front = getCLElement(pList, position - 1); // 헤더 노드일 경우 ?? get() 함수를 수정할까
+	front = getCLElement(pList, position - 1);
 	remove = front->pLink;
 	front->pLink = remove->pLink;
 	free(remove);
 	pList->currentElementCount--;
-	if (remove == pList->headerNode.pLink)  // remove가 마지막 노드였다면, headernode에 널처리 필요
+	if (remove == pList->headerNode.pLink)  // remove가 마지막 노드였다면, headernode에 널처리
 		pList->headerNode.pLink = NULL;
 	else if (position == 0)
 	{
@@ -113,8 +113,8 @@ CircularListNode* getCLElement(CircularList* pList, int position)
 		printf("position out of bound\n");
 		return (NULL);
 	}
-	if (position == -1) // 여기를 수정해야 하나? // 헤더노드가 아닌 그 앞의 노드 => 마지막 노드를 반환하도록
-		return (&(pList->headerNode)); // position = pList->currentElementCount = -1;
+	if (position == -1)
+		return (&(pList->headerNode));
 	position = position % pList->currentElementCount; // position이 넘어가도 계산이 된다.
 	get = (pList->headerNode).pLink;
 	for (cnt = 0; cnt < position; cnt++)
@@ -207,7 +207,7 @@ void reverseLinkedList(CircularList* pList) ///
 			attach->pLink = get;
 			attach = get;
 		}
-		attach->pLink = last; //여기 수정
+		attach->pLink = last; //수정
 		pList->headerNode.pLink = last;
 	}
 }

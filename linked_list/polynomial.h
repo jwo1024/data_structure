@@ -15,17 +15,17 @@ typedef struct PolyListType // 다항식 polynomial
 	Node headerNode;		// 헤더 노드(Header Node)
 } PolyList;
 
-LinkedList* createLinkedList();
-int addLLElement(LinkedList* pList, int position, Node element); //지수의 순서에 맞게 넣어줘야 한다.
-int removeLLElement(LinkedList* pList, int position);
-Node* getLLElement(LinkedList* pList, int position); //지수 순서에 맞게 출력
+PolyList* createPolyList();
+int addPLElement(PolyList* pList, int position, Node element); //지수의 순서에 맞게 넣어줘야 한다.
+int removePLElement(PolyList* pList, int position);
+Node* getPLElement(PolyList* pList, int position); //지수 순서에 맞게 출력
 
-void clearLinkedList(LinkedList* pList);
-int getLinkedListLength(LinkedList* pList);
-void deleteLinkedList(LinkedList** pList);
+void clearPolyList(PolyList* pList);
+int getPolyListLength(PolyList* pList);
+void deletePolyList(PolyList** pList);
 
-void displayLinkedList(LinkedList* pList); //수정필요
-void reverseLinkedList(LinkedList* pList);
+void displayPolyList(PolyList* pList); //수정필요
+void reversePolyList(PolyList* pList);
 
 // 다항식의 덧셈을 계산하여 list를 반환하는 함수 구현
 // (합병정렬을 생각하면 쉽다. , 전제조건은 다항식 a, b가 이미 정렬이 되어있어야한다.)
