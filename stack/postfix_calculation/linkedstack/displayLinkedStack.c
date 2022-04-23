@@ -12,9 +12,9 @@ void		displayLinkedStack(LinkedStack *pStack)
 	while (node != NULL) 
 	{
 		if (node->pLink != NULL)
-			printf("%c ", node->data);
+			printf("%d ", node->data);
 		else
-			printf("%c\n", node->data);
+			printf("%d\n", node->data);
 		node = node->pLink;
 	}
 }

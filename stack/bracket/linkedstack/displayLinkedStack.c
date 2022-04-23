@@ -6,10 +6,10 @@ void		displayLinkedStack(LinkedStack *pStack)
 
 	if (NULLCHECK(pStack))
 		return ;
-	if (pStack->pTopElement == NULL)
-		printf("the LinkedStack is empty\n");
+	if (pStack->currentElementCount == 0)//
+		printf("empty");
 	node = pStack->pTopElement;
-	while (node != NULL) 
+	while (node != NULL)
 	{
 		if (node->pLink != NULL)
 			printf("%c ", node->data);
