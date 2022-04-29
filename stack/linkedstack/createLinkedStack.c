@@ -11,3 +11,6 @@ LinkedStack	*createLinkedStack()
 	pStack->pTopElement = NULL;
 	return (pStack);
 }
+
+// 3 * 4 / 7
+// 3 4 * 7 /

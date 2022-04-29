@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// displayLinkedList(), reverseLinkedList()의  currentElementcount == 0일때 예외처리 추가
 
 
 /* 원형 연결리스트 생성 */
@@ -53,7 +52,7 @@ int addCLElement(CircularList* pList, int position, CircularListNode element)
 	if (position == 0 && pList->currentElementCount != 1) // 0번째 유일하지 않은 노드에 변화가 있을때
 	{
 		back = getCLElement(pList, pList->currentElementCount - 1);
-		back->pLink = pList->headerNode.pLink;
+		back->pLink = new;
 	}
 	else if (pList->currentElementCount == 1) //처음 만들어진 노드이면 자기자신을 가리키도록
 		new->pLink = new;
