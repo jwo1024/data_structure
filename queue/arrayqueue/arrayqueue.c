@@ -1,5 +1,6 @@
 #include	"arrayqueue.h"
 #include	<stdlib.h>
+#include	<string.h>
 
 ArrayQueue* createArrayQueue(int maxElementCount)
 {
@@ -23,33 +24,75 @@ ArrayQueue* createArrayQueue(int maxElementCount)
 
 int enqueueAQ(ArrayQueue* pQueue, ArrayQueueNode element)
 {
-	ArrayQueueNode	*new_element;
-
-	if (pQueue->currentElementCount == pQueue->maxElementCount)
+	if (isArrayQueueFull(pQueue))
 	{
 		printf("ArrayQueue is Full\n");
 		return (FALSE);
 	}
-	new_element = calloc(1, sizeof(ArrayQueueNode));
-	if (new_element == NULL)
-		return (-1);
-	*new_element = element;
-	pQueue->;
-
+	pQueue->pElement[pQueue->rear] = element;
+	pQueue->rear = (pQueue->rear + 1) % pQueue->maxElementCount;
+	pQueue->currentElementCount++;
 	return (pQueue->currentElementCount);
 }
 
 ArrayQueueNode *dequeueAQ(ArrayQueue* pQueue)
 {
+	ArrayQueueNode *de_node;
 
+	if (isArrayQueueEmpty(pQueue))
+	{
+		printf("ArrayQueue is Empty\n");
+		return (FALSE);
+	}
+	de_node = calloc(1, sizeof(ArrayQueueNode));
+	if (de_node == NULL)
+		return (NULL);
+	*de_node = pQueue->pElement[pQueue->front];
+	memset(&pQueue->pElement[pQueue->front], 0, sizeof(ArrayQueueNode));
+	pQueue->front = (pQueue->front + 1) % pQueue->maxElementCount;
+	pQueue->currentElementCount--;
+	return (de_node);
 }
 
 ArrayQueueNode *peekAQ(ArrayQueue* pQueue)
 {
+	ArrayQueueNode	*peek_node;
 
+	if (isArrayQueueEmpty(pQueue))
+	{
+		printf("ArrayQueue is Empty\n");
+		return (FALSE);
+	}
+	peek_node = calloc(1, sizeof(ArrayQueueNode));
+	if (peek_node == NULL)
+		return (NULL);
+	*peek_node = pQueue->pElement[pQueue->front];
+	return (peek_node);
 }
 
 void deleteArrayQueue(ArrayQueue* pQueue)
 {
+	if (pQueue == NULL)
+		return;
+	if (pQueue->pElement != NULL)
+		free(pQueue->pElement);
+	free(pQueue);
+}
 
+int isArrayQueueFull(ArrayQueue* pQueue)
+{
+	if (pQueue == NULL)
+		return (-1);
+	if (pQueue->currentElementCount == pQueue->maxElementCount)
+		return (TRUE);
+	return (FALSE);
+}
+
+int isArrayQueueEmpty(ArrayQueue* pQueue)
+{
+	if (pQueue == NULL)
+		return (-1);
+	if (pQueue->currentElementCount == 0)
+		return (TRUE);
+	return (FALSE);
 }

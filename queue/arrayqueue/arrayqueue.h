@@ -12,7 +12,7 @@ typedef struct ArrayQueueType
 	int currentElementCount;	// ���� ������ ���� 현재 원소 개수
 	int front;				// front ��ġ 첫번째 원소 위치
 	int rear;				// rear ��ġ 마지막 원소 위치
-	ArrayQueueNode *pElement;	// ��� ������ ���� 1���� �迭 ������
+	ArrayQueueNode *pElement;	// ��� ������ ���� 1���� �迭 ������ 배열
 } ArrayQueue;
 
 ArrayQueue* createArrayQueue(int maxElementCount);
