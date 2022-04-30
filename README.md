@@ -17,7 +17,7 @@
 
 
 ### 3주차 Queue ###
-* arrayqueue
-	- 원형큐
-* linkedqueue
-	- dequeue
+* 원형큐 circularqueue
+	- arrayqueue 로 구현
+* dequeue
+	- linkedqueue 로 구현
