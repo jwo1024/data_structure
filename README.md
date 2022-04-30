@@ -20,3 +20,4 @@
 * arrayqueue
 	- 원형큐
 * linkedqueue
+	- dequeue
