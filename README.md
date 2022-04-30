@@ -5,7 +5,7 @@
 * array list
 * 응용
 
-### 2주차 stack ###
+### 2주차 Stack ###
 * linked stack
 * array stack
 * 응용
@@ -16,7 +16,7 @@
 	* 미로 경로찾기 - 수정중
 
 
-### 3주차 queue ###
+### 3주차 Queue ###
 * arrayqueue
 	- 원형큐
 * linkedqueue
