@@ -1,6 +1,7 @@
 #include	"arrayqueue.h"
 #include	<stdlib.h>
 #include	<string.h>
+#include	<stdio.h>
 
 ArrayQueue* createArrayQueue(int maxElementCount)
 {
@@ -29,8 +30,9 @@ int enqueueAQ(ArrayQueue* pQueue, ArrayQueueNode element)
 		printf("ArrayQueue is Full\n");
 		return (FALSE);
 	}
+	if (isArrayQueueEmpty(pQueue) == FALSE)
+		pQueue->rear = (pQueue->rear + 1) % pQueue->maxElementCount;
 	pQueue->pElement[pQueue->rear] = element;
-	pQueue->rear = (pQueue->rear + 1) % pQueue->maxElementCount;
 	pQueue->currentElementCount++;
 	return (pQueue->currentElementCount);
 }
@@ -51,6 +53,11 @@ ArrayQueueNode *dequeueAQ(ArrayQueue* pQueue)
 	memset(&pQueue->pElement[pQueue->front], 0, sizeof(ArrayQueueNode));
 	pQueue->front = (pQueue->front + 1) % pQueue->maxElementCount;
 	pQueue->currentElementCount--;
+	if (isArrayQueueEmpty(pQueue))
+	{
+		pQueue->front = 0;
+		pQueue->rear = 0;
+	}
 	return (de_node);
 }
 
@@ -95,4 +102,29 @@ int isArrayQueueEmpty(ArrayQueue* pQueue)
 	if (pQueue->currentElementCount == 0)
 		return (TRUE);
 	return (FALSE);
+}
+
+void	displayArrayQueue(ArrayQueue* pQueue)
+{
+	int	idx;
+	int	print_cnt;
+
+	if (pQueue == NULL)
+		return ;
+	if (isArrayQueueEmpty(pQueue))
+	{
+		printf("ArrayQueue is Empty\n");
+		return ;
+	}
+	idx = pQueue->front;
+	print_cnt = pQueue->currentElementCount;
+	printf("ArrayDeque front[%d] rear[%d]\n", pQueue->front, pQueue->rear);
+	while (print_cnt--)
+	{
+		printf("ArrayDeque[%d]\t%c\n", idx, pQueue->pElement[idx].data);
+		idx++;
+		if (idx >= pQueue->maxElementCount)
+			idx = 0;
+	}
+	printf("-----\n");
 }

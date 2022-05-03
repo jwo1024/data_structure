@@ -23,6 +23,8 @@ void deleteArrayQueue(ArrayQueue* pQueue);
 int isArrayQueueFull(ArrayQueue* pQueue);
 int isArrayQueueEmpty(ArrayQueue* pQueue);
 
+void	displayArrayQueue(ArrayQueue* pQueue);
+
 #endif
 
 #ifndef _COMMON_QUEUE_DEF_

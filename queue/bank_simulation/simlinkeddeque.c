@@ -144,6 +144,7 @@ int isLinkedDequeEmpty(LinkedDeque* pDeque)
 	return (pDeque->currentElementCount == 0);
 }
 
+/*
 void	displayLinkedDeque(LinkedDeque *pDeque)
 {
 	DequeNode	*display;
@@ -163,3 +164,4 @@ void	displayLinkedDeque(LinkedDeque *pDeque)
 		display = display->pRLink;
 	}
 }
+*/
