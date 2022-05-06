@@ -1,4 +1,4 @@
-#include	"linkeddeque.h"
+#include	"simlinkeddeque.h"
 #include	<stdlib.h>
 #include	<stdio.h>
 
