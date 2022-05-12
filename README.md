@@ -22,6 +22,9 @@
 	- arrayqueue 로 구현
 * dequeue
 	- linkedqueue 로 구현
+* simulation
+	- dequeue으로 FCFS 시뮬레이션
 
-
-### 4주차 ###
+### 4주차 tree###
+* binary tree
+	- d
