@@ -3,9 +3,9 @@
 
 #include "bintree.h"
 
-BinTreeNode	*searchBinTreeNode();
-BinTreeNode *insertBinSearchTree(BinTree *BinTree, BinTreeNode *element);
-BinTreeNode *deleteBinSearchTree(BinTree *BinTree, BinTreeNode element);
+BinTreeNode	*searchBinTreeNode(BinTree *tree, int key);
+BinTreeNode *insertBinSearchTree(BinTree *tree, BinTreeNode element);
+void        deleteBinSearchTreeNode(BinTreeNode* pNode, BinTree *tree);
 
 #endif
 

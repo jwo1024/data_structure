@@ -7,10 +7,11 @@
 typedef struct BinTreeNodeType
 {
 	char data;
-	int visited;
+	int	key;
 
 	struct BinTreeNodeType* pLeftChild;
 	struct BinTreeNodeType* pRightChild;
+	struct BinTreeNodeType* parent; 
 } BinTreeNode;
 
 typedef struct BinTreeType
