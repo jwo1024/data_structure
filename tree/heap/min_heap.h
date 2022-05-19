@@ -18,13 +18,13 @@ typedef struct MinHeapType
 } MinHeap;
 
 MinHeap* makeMinHeap(int max_size);
-int insertMinHeap(MinHeap *heap, MinHeapNode data);
+int insertMinHeap(MinHeap *heap, MinHeapNode element);
 MinHeapNode deleteMinHeap(MinHeap *heap);
 void deleteMinHeapALL(MinHeap** heap);
 
 int isMinHeapEmpty(MinHeap *heap);
 int	isMinHeapFull(MinHeap *heap);
-void minHeapSort();
+void minHeapSortPrint();
 
 #endif
 

@@ -5,7 +5,7 @@ MinHeap* makeMinHeap(int max_size)
 	MinHeap *newHeap;
 
 	newHeap = calloc(1, sizeof(MinHeap));
-	newHeap->pElement = calloc(max_size, sizeof(MinHeapNode));
+	newHeap->pElement = calloc(max_size + 1, sizeof(MinHeapNode));
 	newHeap->maxElementCount = max_size;
 	return (newHeap);
 }
@@ -70,7 +70,7 @@ void deleteMinHeapALL(MinHeap** heap)
 }
 
 
-void minHeapSort()
+void minHeapSortPrint()
 {
 	int	cnt;
 	int	key;
@@ -78,7 +78,8 @@ void minHeapSort()
 	MinHeapNode node;
 	MinHeap *heap;
 
-	printf("count of insert to heap : ");
+	/*insert 입력*/
+	printf("the number of data : ");
 	scanf(" %d", &cnt);
 	heap = makeMinHeap(cnt);
 	for (int i = 1; i <= cnt; i++)
@@ -93,6 +94,7 @@ void minHeapSort()
 		insertMinHeap(heap, node);
 	}
 
+	/*(정렬된 순서로) 삭제 및 출력*/
 	while (!isMinHeapEmpty(heap))
 	{
 		node = deleteMinHeap(heap);
@@ -117,13 +119,6 @@ int	isMinHeapFull(MinHeap *heap)
 	}
 	return (0);
 }
-
-/*
-MinHeapNode	getMinHeapNode(MinHeap* heap)
-{
-	
-}
-*/
 
 int	main(void)
 {
@@ -162,7 +157,7 @@ int	main(void)
 		printf("i[%d] delete node %d\n", i, tmp->key);
 	}/*/
 
-	minHeapSort();
+	minHeapSortPrint();
 
 
 	return (0);
