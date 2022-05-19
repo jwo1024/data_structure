@@ -17,9 +17,9 @@ typedef struct MinHeapType
 	struct MinHeapNodeType* pElement;
 } MinHeap;
 
-MinHeap* makeMinHeap(int max_size);
+MinHeap *makeMinHeap(int max_size);
 int insertMinHeap(MinHeap *heap, MinHeapNode element);
-MinHeapNode deleteMinHeap(MinHeap *heap);
+MinHeapNode *deleteMinHeap(MinHeap *heap);
 void deleteMinHeapALL(MinHeap** heap);
 
 int isMinHeapEmpty(MinHeap *heap);

@@ -4,8 +4,8 @@ MinHeap* makeMinHeap(int max_size)
 {
 	MinHeap *newHeap;
 
-	newHeap = calloc(1, sizeof(MinHeap));
-	newHeap->pElement = calloc(max_size + 1, sizeof(MinHeapNode));
+	newHeap = (MinHeap *)calloc(1, sizeof(MinHeap));
+	newHeap->pElement = (MinHeapNode *)calloc(max_size + 1, sizeof(MinHeapNode));
 	newHeap->maxElementCount = max_size;
 	return (newHeap);
 }
@@ -27,17 +27,16 @@ int insertMinHeap(MinHeap *heap, MinHeapNode data) // 반환형
 	return (1);
 }
 
-MinHeapNode deleteMinHeap(MinHeap *heap) //함수이름 pdf랑 통일
+MinHeapNode *deleteMinHeap(MinHeap *heap) //함수이름 pdf랑 통일
 {
-	MinHeapNode	result;
+	MinHeapNode	*result;
 	MinHeapNode	tmp;
 	int i, parent, child;
 
-	result.data = 0;
-	result.key = -1;
 	if (!heap || isMinHeapEmpty(heap))
-		return (result);
-	result = heap->pElement[1];
+		return (NULL);
+	result = (MinHeapNode *)calloc(1, sizeof(MinHeapNode));
+	*result = heap->pElement[1];
 	i = heap->currentElementCount;
 	tmp = heap->pElement[i];
 	heap->currentElementCount--;
@@ -76,6 +75,7 @@ void minHeapSortPrint()
 	int	key;
 	char data;
 	MinHeapNode node;
+	MinHeapNode	*pNode;
 	MinHeap *heap;
 
 	/*insert 입력*/
@@ -97,8 +97,8 @@ void minHeapSortPrint()
 	/*(정렬된 순서로) 삭제 및 출력*/
 	while (!isMinHeapEmpty(heap))
 	{
-		node = deleteMinHeap(heap);
-		printf("key %d data %c \n", node.key, node.data);
+		pNode = deleteMinHeap(heap);
+		printf("key %d data %c \n", pNode->key, pNode->data);
 	}
 	deleteMinHeapALL(&heap);
 }
