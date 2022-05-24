@@ -10,7 +10,7 @@ MinHeap* makeMinHeap(int max_size)
 	return (newHeap);
 }
 
-int insertMinHeap(MinHeap *heap, MinHeapNode data) // 반환형
+int insertMinHeap(MinHeap *heap, MinHeapNode data)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int insertMinHeap(MinHeap *heap, MinHeapNode data) // 반환형
 	return (1);
 }
 
-MinHeapNode *deleteMinHeap(MinHeap *heap) //함수이름 pdf랑 통일
+MinHeapNode *deleteMinHeap(MinHeap *heap)
 {
 	MinHeapNode	*result;
 	MinHeapNode	tmp;
@@ -95,10 +95,12 @@ void minHeapSortPrint()
 	}
 
 	/*(정렬된 순서로) 삭제 및 출력*/
+	printf("\n-----print sort------\n");
 	while (!isMinHeapEmpty(heap))
 	{
 		pNode = deleteMinHeap(heap);
 		printf("key %d data %c \n", pNode->key, pNode->data);
+		free(pNode);
 	}
 	deleteMinHeapALL(&heap);
 }
