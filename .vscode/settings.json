@@ -3,6 +3,7 @@
 		"stdio.h": "c",
 		"stdlib.h": "c",
 		"createlinkedstack": "cpp",
-		"linkedstack.h": "c"
+		"linkedstack.h": "c",
+		"arraygraph.h": "c"
 	}
 }

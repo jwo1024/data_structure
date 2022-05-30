@@ -1,4 +1,4 @@
-#include "linkedlist.h"
+#include "graphlinkedlist.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,15 +7,12 @@ LinkedList* createLinkedList()
 {
 	LinkedList *pList;
 
-	pList = (LinkedList *)malloc(sizeof(LinkedList));
+	pList = (LinkedList *)calloc(1, sizeof(LinkedList));
 	if (pList == 0)
 	{
 		printf("malloc failed\n");
 		return (NULL);
 	}
-	pList->currentElementCount = 0;
-	pList->headerNode.data = 0;
-	pList->headerNode.pLink = NULL;
 	return (pList);
 }
 
@@ -115,7 +112,8 @@ void clearLinkedList(LinkedList* pList)
 		while (pList->currentElementCount)
 		{
 			pList->headerNode.pLink = clear->pLink;
-			clear->data = 0;
+			clear->data.vertexID = 0;
+			clear->data.weight = 0;
 			free(clear);
 			clear = (pList->headerNode).pLink;
 			pList->currentElementCount--;
@@ -159,9 +157,9 @@ void displayLinkedList(LinkedList* pList)
 		printf("the LinkedList is empty\n");
 	else
 	{
-		for (i = 0; i < pList->currentElementCount - 1; i++)
-			printf("%d ", getLLElement(pList, i)->data);
- 		printf("%d\n", getLLElement(pList, i)->data);
+		for (i = 0; i < pList->currentElementCount; i++)
+			printf("ID %d weight %d \n", getLLElement(pList, i)->data.vertexID, getLLElement(pList, i)->data.weight);
+ 	//	printf("%d\n", getLLElement(pList, i)->data);
 	}
 }
 
