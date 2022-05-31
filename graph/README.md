@@ -69,7 +69,12 @@
 
 그래프의 표현
 
-발생행렬 incidence matrix 
+발생행렬 incidence matrix
+- row 은 vertex, column 는 edge
+>	 e1 e2 e3
+>v1  1  0  0
+>v2  1  1  1
+>v3  0  1  1
 
 인접행렬 adjacency matrix //arraygraph
 
@@ -96,9 +101,18 @@
 - 최단경로 문제
 - 최소 신장트리 문제
 
-
+---------
 
 ## 그래프의 dfs bfs ##
+
+
+깊이 우선 탐색 (DFS Depth First Search)
+- vertex 의 자식들을 우선 탐색
+- stack
+
+너비 우선 탐색 (BFS Breadth First Search)
+- vetex의 형제들을 우선 탐색
+- queue
 
 
 link
