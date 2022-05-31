@@ -58,7 +58,43 @@
 그래프의 종류
 
 완전 그래프 comlete graph
-- 
+
+이분 그래프 bipartite graph
+
+완전 이분 그래프 complete bipartite graph
+
+정규 그래프 regular graph
+
+----------
+
+그래프의 표현
+
+발생행렬 incidence matrix 
+
+인접행렬 adjacency matrix //arraygraph
+
+인접리스트 adjacency list  //linkedgraph
+
+---------
+
+평면 그래프 planar graph
+
+오일러 트레일
+- 모든 변들을 각 한번만 지나는 트레일
+오일러 투어
+- 시작점과 종점이 같은 오일러 트레일
+
+해밀턴 경로
+- 그래프의 모든 꼭지점을 한 번씩만 지나는 경로
+해밀턴 투어
+- 시작점과 종점이 같은 해밀턴 경로
+
+----------
+
+가중 그래프 weighted graph
+
+- 최단경로 문제
+- 최소 신장트리 문제
 
 
 
