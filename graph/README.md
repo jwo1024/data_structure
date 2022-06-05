@@ -77,6 +77,7 @@
 >v3  0  1  1
 
 인접행렬 adjacency matrix //arraygraph
+// 순환????
 
 인접리스트 adjacency list  //linkedgraph
 
@@ -105,7 +106,6 @@
 
 ## 그래프의 dfs bfs ##
 
-
 깊이 우선 탐색 (DFS Depth First Search)
 - vertex 의 자식들을 우선 탐색
 - stack
@@ -114,7 +114,30 @@
 - vetex의 형제들을 우선 탐색
 - queue
 
-
 link
 - https://www.zerocho.com/category/Algorithm/post/5870153c37e1c80018b64eb0
 - https://velog.io/@falling_star3/2.-깊이우선탐색DFS과-넓이우선탐색BFS
+
+
+---------
+
+최소 신장트리 문제
+
+크루스칼
+- edge 중심으로 vertex 선택
+- minheap , 사이클 여부를 dfs로 체크 from - to 
+- 모든 노드가 선택될때까지 cnt 사용
+
+프림
+- vertex 중심으로 edge 선택
+- 
+
+최단 거리 문제
+
+다익스트라 Dijkstra 알고리즘
+- 하나의 소스에서 모든 노드로 가는 최단 거리를 계산
+- greedy
+
+플로이드 floyd 알고리즘
+- 모든 노드를 체크
+

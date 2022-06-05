@@ -90,7 +90,7 @@ int addEdgewithWeightAG(ArrayGraph* pGraph, int fromVertexID, int toVertexID, in
 	return (TRUE);
 }
 
-int checkVertexValid(ArrayGraph* pGraph, int vertexID)
+int checkVertexValid(ArrayGraph* pGraph, int vertexID) // 유효성 검사,, 
 {
 	if (!pGraph)
 		return (ERROR);

@@ -31,6 +31,9 @@ void deleteLinkedList(LinkedList** pList);
 void displayLinkedList(LinkedList* pList);
 void reverseLinkedList(LinkedList* pList);
 
+// graph
+int removeLLElementGID(LinkedList* pList, int vertexID);
+
 #endif
 #ifndef _COMMON_LIST_DEF_
 #define _COMMON_LIST_DEF_

@@ -188,6 +188,38 @@ void reverseLinkedList(LinkedList* pList)
 	}
 }
 
+
+/* remove vertexID */
+int removeLLElementGID(LinkedList* pList, int vertexID)
+{
+	ListNode *remove;
+	ListNode *front;
+
+	if (pList == NULL)
+	{
+		printf("Invalid LinkedList\n");
+		return (ERROR);
+	}
+
+	front = &(pList->headerNode);
+	remove = (pList->headerNode).pLink;
+	while (remove)
+	{
+	
+		if (remove->data.vertexID == vertexID)
+			break;
+		front = remove;
+		remove = remove->pLink;
+	}
+	if (remove == NULL)
+		return (0);
+	front->pLink = remove->pLink;
+	free(remove);
+	pList->currentElementCount--;
+	return (pList->currentElementCount);
+}
+
+
 /*
 int main(void)
 {
